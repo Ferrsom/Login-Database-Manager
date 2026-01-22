@@ -1,19 +1,15 @@
 <?php
 include "db/dbverbindung.php";
-//Array für Teilnehmer Info
+
 $tninfo="";
 if(isset($_GET['tidnummer'])){
-    //htmlspecialchar 
     $tid=htmlspecialchars($_GET['tidnummer']);
 
-    //sql Abfrage
     $sql="SELECT * FROM teilnehmer WHERE tID=?";
     $cmd = $verbindung->prepare($sql);
     $cmd->execute([$tid]);
-    //datei in einem Array zu speichern
+
     $tninfo = $cmd->fetch();
-    //test
-    //print_r($tninfo);
 
 }
     $vorname = $tninfo['vorname'];
