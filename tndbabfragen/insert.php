@@ -7,7 +7,6 @@ if(isset($_POST['speichern'])){
     $nachname= $_POST['nachname'];
     $email= $_POST['email'];
 
-    //SQL Abfrage
     $sql = "INSERT INTO teilnehmer (vorname, nachname,email) VALUES (?, ?, ?) ";
     $cmd = $verbindung->prepare($sql);
     $cmd->execute([$vorname, $nachname, $email]);
