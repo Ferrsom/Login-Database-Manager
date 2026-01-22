@@ -1,18 +1,17 @@
 <?php
 session_start();
-//require "dbverbindung.php";
-//require_once ("dbverbindung.php");
+
 if(!isset($_SESSION['benutzer_id'])){
     header("location:loginseite.php");
     exit;
 }
 include "db/dbverbindung.php";
-//Daten von der Datenbank laden
+
 $sql="SELECT * FROM teilnehmer";
 $cmd = $verbindung->query($sql);
-//Associative Array als ergebniss
+
 $alleteilnehmer=$cmd->fetchAll();
-//print_r($alleteilnehmer);
+
 ?>
 <!DOCTYPE html>
 <html lang="de">
@@ -23,7 +22,7 @@ $alleteilnehmer=$cmd->fetchAll();
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body { background-color: #f8f9fa; }
-        .navbar { background-color: #0055a5; } /* GPB-ähnliches Blau */
+        .navbar { background-color: #0055a5; } 
         .card { margin-bottom: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
     </style>
 </head>
